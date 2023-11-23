@@ -1,4 +1,6 @@
-const ROOT_URL = process.env.REACT_APP_API_URL;
+const ROOT_URL_ENV = process.env.REACT_APP_API_URL;
+console.log(ROOT_URL_ENV, "API URL FROM ENV");
+const ROOT_URL = "https://what-trial-gbolly-api-stage.us.aldryn.io/api/";
 export const signupUrl = () => `${ROOT_URL}user/register/`;
 export const loginUrl = () => `${ROOT_URL}user/login/`;
 export const logoutUrl = () => `${ROOT_URL}user/logout/`;
