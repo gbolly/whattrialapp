@@ -65,7 +65,7 @@ const SignupPage = () => {
           </Col>
         </Form.Group>
       </Form>
-      <Link to="/login" className="float-end createAccount">Have an account? Login</Link>
+      <Link to="/login" className="float-end createAccount py-2">Have an account? Login</Link>
     </div>
   )
 };
