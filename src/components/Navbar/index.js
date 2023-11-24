@@ -16,8 +16,8 @@ const WhatNav = () => {
   
   const handleLogout = async () => {
     await userLogout();
-    await removeCookie("csrftoken");
-    await removeCookie("sessionid");
+    removeCookie("csrftoken");
+    removeCookie("sessionid");
     await removeFromStore("userEmail");
     setUserEmail("");
     setIsAuthenticated(false);

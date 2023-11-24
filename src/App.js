@@ -25,7 +25,7 @@ const App = () => {
   };
 
   const getAuth = async () => {
-    const csrftoken = await getCookie("csrftoken");
+    const csrftoken = getCookie("csrftoken");
     if (csrftoken) {
       setIsAuthenticated(true);
     }

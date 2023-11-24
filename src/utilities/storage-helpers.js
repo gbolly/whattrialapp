@@ -29,12 +29,27 @@ export const removeFromStore = async (key, clearAll = false) => {
   }
 };
 
-export const getCookie = async key => {
-  const cookies = new Cookies();
-  return cookies.get(key);
+// export const getCookie = async key => {
+//   const cookies = new Cookies();
+//   return cookies.get(key);
+// };
+
+// export const removeCookie = async key => {
+//   const cookies = new Cookies();
+//   return cookies.remove(key);
+// };
+export const getCookie = (name) => {
+  const cookies = document.cookie.split(';');
+  for (const cookie of cookies) {
+    const [cookieName, cookieValue] = cookie.trim().split('=');
+    console.log(cookieValue)
+    if (cookieName === name) {
+      return cookieValue;
+    }
+  }
+  return null;
 };
 
-export const removeCookie = async key => {
-  const cookies = new Cookies();
-  return cookies.remove(key);
+export const removeCookie = (name) => {
+  document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
 };
