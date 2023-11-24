@@ -1,3 +1,5 @@
+import Cookies from 'universal-cookie';
+
 export const getFromStore = async key => {
   const value = localStorage.getItem(key);
 
@@ -27,18 +29,12 @@ export const removeFromStore = async (key, clearAll = false) => {
   }
 };
 
-export const getCookie = (name) => {
-  const cookies = document.cookie.split(';');
-  for (const cookie of cookies) {
-    const [cookieName, cookieValue] = cookie.trim().split('=');
-    console.log(cookieName, cookieValue)
-    if (cookieName === name) {
-      return cookieValue;
-    }
-  }
-  return null;
+export const getCookie = key => {
+  const cookies = new Cookies();
+  return cookies.get(key);
 };
 
-export const removeCookie = (name) => {
-  document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+export const removeCookie = key => {
+  const cookies = new Cookies();
+  return cookies.remove(key);
 };
