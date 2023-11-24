@@ -5,13 +5,11 @@ import { loginUrl, productUrl, updateProductUrl, logoutUrl, signupUrl } from "./
 
 export const request = async (url, action, data = null) => {
   const csrftoken = getCookie("csrftoken");
-  console.log(csrftoken, "THE TOKEN")
   const headers = {
     "Content-Type": "application/json",
     Accept: "*/*",
     ...(csrftoken && { "X-CSRFToken": csrftoken }),
   };
-  console.log(headers);
 
   try {
     const response = await axios({

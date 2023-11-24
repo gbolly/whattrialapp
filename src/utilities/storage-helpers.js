@@ -1,5 +1,3 @@
-import Cookies from 'universal-cookie';
-
 export const getFromStore = async key => {
   const value = localStorage.getItem(key);
 

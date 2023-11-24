@@ -32,7 +32,7 @@ const LoginPage = () => {
     const data = { email, password };
     const response = await userLogin(data);
     if (response.status !== 202) {
-      alert(response.data.non_field_errors[0]);
+      alert("Error occured");
     } else {
       const authUser = response.data;
       setUserEmail(authUser);
