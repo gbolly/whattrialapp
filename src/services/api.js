@@ -5,11 +5,13 @@ import { loginUrl, productUrl, updateProductUrl, logoutUrl, signupUrl } from "./
 
 export const request = async (url, action, data = null) => {
   const csrftoken = await getCookie("csrftoken");
+  console.log(csrftoken)
   const headers = {
     "Content-Type": "application/json",
     Accept: "*/*",
     ...(csrftoken && { "X-CSRFToken": csrftoken }),
   };
+  console.log(headers);
 
   try {
     const response = await axios({
@@ -17,7 +19,7 @@ export const request = async (url, action, data = null) => {
       url,
       data,
       headers: headers,
-      'withCredentials': true
+      withCredentials: true
     });
     return response;
   } catch (error) {
