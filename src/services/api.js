@@ -17,6 +17,7 @@ export const request = async (url, action, data = null) => {
       url,
       data,
       headers: headers,
+      'withCredentials': true
     });
     return response;
   } catch (error) {
