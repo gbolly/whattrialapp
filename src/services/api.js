@@ -4,8 +4,8 @@ import { getCookie } from "../utilities/storage-helpers";
 import { loginUrl, productUrl, updateProductUrl, logoutUrl, signupUrl } from "./urls";
 
 export const request = async (url, action, data = null) => {
-  const csrftoken = await getCookie("csrftoken");
-  console.log(csrftoken)
+  const csrftoken = getCookie("csrftoken");
+  console.log(csrftoken, "THE TOKEN")
   const headers = {
     "Content-Type": "application/json",
     Accept: "*/*",

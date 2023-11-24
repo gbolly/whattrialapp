@@ -32,7 +32,6 @@ const LoginPage = () => {
     const data = { email, password };
     const response = await userLogin(data);
     if (response.status !== 202) {
-      console.log(response.data)
       alert(response.data.non_field_errors[0]);
     } else {
       const authUser = response.data;

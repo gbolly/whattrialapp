@@ -1,5 +1,3 @@
-import Cookies from 'universal-cookie';
-
 export const getFromStore = async key => {
   const value = localStorage.getItem(key);
 
@@ -29,20 +27,11 @@ export const removeFromStore = async (key, clearAll = false) => {
   }
 };
 
-// export const getCookie = async key => {
-//   const cookies = new Cookies();
-//   return cookies.get(key);
-// };
-
-// export const removeCookie = async key => {
-//   const cookies = new Cookies();
-//   return cookies.remove(key);
-// };
 export const getCookie = (name) => {
   const cookies = document.cookie.split(';');
   for (const cookie of cookies) {
     const [cookieName, cookieValue] = cookie.trim().split('=');
-    console.log(cookieValue)
+    console.log(cookieName, cookieValue)
     if (cookieName === name) {
       return cookieValue;
     }
