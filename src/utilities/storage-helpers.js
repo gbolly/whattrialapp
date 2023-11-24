@@ -29,12 +29,18 @@ export const removeFromStore = async (key, clearAll = false) => {
   }
 };
 
-export const getCookie = key => {
-  const cookies = new Cookies();
-  return cookies.get(key);
+export const getCookie = (name) => {
+  console.log(document.cookie)
+  const cookies = document.cookie.split(';');
+  for (const cookie of cookies) {
+    const [cookieName, cookieValue] = cookie.trim().split('=');
+    if (cookieName === name) {
+      return cookieValue;
+    }
+  }
+  return null;
 };
 
-export const removeCookie = key => {
-  const cookies = new Cookies();
-  return cookies.remove(key);
-};
+export const clearCookie = (name) => {
+  document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=us.aldryn.io;`;
+}
